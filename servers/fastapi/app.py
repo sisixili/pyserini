@@ -17,18 +17,23 @@ Endpoints:
 """
 
 from fastapi import FastAPI
+import sys
+from pathlib import Path
 
-from routes import indexes
+# Ensure the parent directory is in sys.path for module resolution
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+
+from routes.indexes import router
+
 
 name = "Pyserini API"
 version = "0.0.1"
 description = "REST API for Pyserini functionality"
 
-
 app = FastAPI(title=name, version=version, description=description)
 
 # Include routers
-app.include_router(indexes.router)
+app.include_router(router)
 
 
 @app.get("/")

@@ -1,5 +1,5 @@
 """
-Models and configuration classes for the Pyserini FastAPI server.
+Models and configuration classes for Pyserini FastAPI and MCP server.
 
 """
 
